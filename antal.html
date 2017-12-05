@@ -2,7 +2,44 @@
 <html>
     <head>
         <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="js/antal.js"></script>
+        <script src="lib/d3-tip/d3-tip.js"></script>
+        <script src="js/viz.js"></script>
+        <style>   
+            .d3-tip {
+            line-height: 1;
+            padding: 6px;
+            background: rgba(236, 223, 223, 0.8);
+            color: rgb(63, 57, 57);
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: sans-serif;
+            }
+        
+            /* Creates a small triangle extender for the tooltip */
+            .d3-tip:after {
+            box-sizing: border-box;
+            display: inline;
+            font-size: 10px;
+            width: 100%;
+            line-height: 1;
+            color: rgba(236, 223, 223, 0.8);
+            content: "\25BC";
+            position: absolute;
+            text-align: center;
+            }
+        
+            /* Style northward tooltips specifically */
+            .d3-tip.n:after {
+            margin: -2px 0 0 0;
+            top: 100%;
+            left: 0;
+            }
+
+            .xaxistext {
+                font-size: 12px;
+                font-family: sans-serif;
+            }
+    </style>
         
     </head>
     <body>
@@ -15,11 +52,9 @@
 
     <script type="text/javascript" >
 
-      
-
-        var csv = "Year;Virk;Gender;Fuldtid\n2016;Apo-Sygehusapoteket;Kvinde;152,23\n2016;Apo-Sygehusapoteket;Mand;17,24\n2016;Direktionen;Mand;3\n"
-
-        antal.antal_func(csv);
+        //var csv = "Year;Virk;Gender;Fuldtid\n2016;Apo-Sygehusapoteket;Kvinde;152,23\n2016;Apo-Sygehusapoteket;Mand;17,24\n2016;Direktionen;Mand;3\n"
+        var csv = "Year;Virk;Gender;Fuldtid\n2016;Sygehusapoteket;Kvinder;152,23\n2016;Sygehusapoteket;Mænd;17,24\n2016;Direktionen;Mænd;1\n2016;Koncern HR;Kvinder;80,3\n2016;Koncern HR;Mænd;22,1\n"
+        antal.fuldtid(csv);
 
     </script>
 
