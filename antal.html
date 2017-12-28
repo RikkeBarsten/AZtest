@@ -39,12 +39,38 @@
                 font-size: 12px;
                 font-family: sans-serif;
             }
+
+            .node {
+            cursor: pointer;
+            }
+
+            .node:hover {
+            stroke: #000;
+            stroke-width: 1.5px;
+            }
+
+            .node--leaf {
+            fill: white;
+            }
+
+            .label {
+            font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-anchor: middle;
+            text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+            }
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
     </style>
         
     </head>
     <body>
         <div id="Fuldtid">  </div>    
         
+        <div id="Antal">  </div>
       
     
     
@@ -53,8 +79,14 @@
     <script type="text/javascript" >
 
         //var csv = "Year;Virk;Gender;Fuldtid\n2016;Apo-Sygehusapoteket;Kvinde;152,23\n2016;Apo-Sygehusapoteket;Mand;17,24\n2016;Direktionen;Mand;3\n"
-        var csv = "Year;Virk;Gender;Fuldtid\n2016;Sygehusapoteket;Kvinder;152,23\n2016;Sygehusapoteket;Mænd;17,24\n2016;Direktionen;Mænd;1\n2016;Koncern HR;Kvinder;80,3\n2016;Koncern HR;Mænd;22,1\n"
-        antal.fuldtid(csv);
+        var fuldtidCsv = "Year;Virk;Kat;Gender;Fuldtid\n2016;Sygehusapoteket;Administration;Kvinder;152,23\n2016;Sygehusapoteket;Apotekspersonale;Mænd;17,24\n2016;Direktionen;Administration;Mænd;1\n2016;Koncern HR;Administration;Kvinder;80,3\n2016;Koncern HR;Administration;Mænd;22,1\n"
+        viz.fuldtid(fuldtidCsv);
+
+        
+
+        var antalCsv = "Year;Virk;Kat;Arbejdstid;Antal\n2016;Sygehusapoteket;Administrion;Fuldtid;100\n2016;Sygehusapoteket;Administrion;Deltid;50\n2016;Sygehusapoteket;Apotekspersonale;Fuldtid;20\n2016;Direktionen;Administration;Timelønnet;10\n2016;Koncern HR;Administration;Fuldtid;80\n2016;Koncern HR;Administration;Fuldtid;22\n"
+        viz.bubble(antalCsv);
+        viz.antal(antalCsv);
 
     </script>
 
