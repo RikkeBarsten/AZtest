@@ -140,7 +140,7 @@
             var color = d3.scaleOrdinal().range(RScolors);
 
             //Append svg-object to div
-            var svg = d3.select("#Antal").append("svg")
+            var svg = d3.select("#fuldtid").append("svg")
                 .attr("width", width)
                 .attr("height", height)
 
